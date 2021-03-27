@@ -1,6 +1,6 @@
 # nebula
 
-<span style="display:block;text-align:center">[![GitHub](https://img.shields.io/static/v1.svg?color=db422a&logoColor=2a6bdb&style=for-the-badge&label=buildsociety&message=GitHub&logo=github)](https://github.com/3letteragency "view the source for all of our repositories.")</span>
+<span style="display:block;text-align:center">[![GitHub](https://img.shields.io/static/v1.svg?color=db422a&logoColor=2a6bdb&style=for-the-badge&label=3letteragency&message=GitHub&logo=github)](https://github.com/3letteragency "view the source for all of our repositories.")</span>
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/3letteragency/nebula/build?color=db422a&logoColor=FFFFFF&style=for-the-badge)
 ![Docker Pulls](https://img.shields.io/docker/pulls/3letteragency2/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
