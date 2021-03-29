@@ -1,11 +1,16 @@
 # nebula
 
+[Origingally Forked From Build Society](https://github.com/buildsociety/nebula)
+
 <span style="display:block;text-align:center">[![GitHub](https://img.shields.io/static/v1.svg?color=db422a&logoColor=2a6bdb&style=for-the-badge&label=3letteragency&message=GitHub&logo=github)](https://github.com/3letteragency "view the source for all of our repositories.")</span>
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/3letteragency/nebula/build?color=db422a&logoColor=FFFFFF&style=for-the-badge)
 ![Docker Pulls](https://img.shields.io/docker/pulls/3letteragency2/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/3letteragency2/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
 ![Docker Stars](https://img.shields.io/docker/stars/3letteragency2/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/buildsociety/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
+
+[Nebula](https://github.com/slackhq/nebula) is a scalable overlay networking tool with a focus on performance, simplicity and security. It lets you seamlessly connect computers anywhere in the world. Nebula is portable, and runs on Linux, OSX, and Windows. (Also: keep this quiet, but we have an early prototype running on iOS). It can be used to connect a small number of computers, but is also able to connect tens of thousands of computers.
 
 ## Supported Architectures
 Our images support multiple architectures such as x86-64, arm64 and armhf. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list).
