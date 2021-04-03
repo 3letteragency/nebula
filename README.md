@@ -15,7 +15,7 @@
 ## Supported Architectures
 Our images support multiple architectures such as x86-64, arm64 and armhf. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list).
 
-Simply pulling [3letteragency/nebula](https://github.com//nebula) should retrieve the correct image for your arch.
+Simply pulling [ghcr.io/3letteragency/nebula](https://github.com/3letteragency/nebula) should retrieve the correct image for your arch.
 
 ## Version Tags
 
@@ -35,8 +35,8 @@ Here are some example snippets to help you get started creating a container.
 ### docker
 
 ```bash
-    docker pull 3letteragency2/nebula:latest
-    docker run -td --cap-add NET_ADMIN -v /path/to/config:/config --name nebula 3letteragency2/nebula:latest
+    docker pull ghcr.io/3letteragency/nebula:latest
+    docker run -td --cap-add NET_ADMIN -v /path/to/config:/config --name nebula 3letteragency/nebula:latest
 ```
 
 User documentation for Nebula can be found at https://github.com/slackhq/nebula#readme
