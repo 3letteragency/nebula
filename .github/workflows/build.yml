@@ -26,7 +26,7 @@ jobs:
         id: prepare
         run: |
           DOCKER_USERNAME=3labuilder
-          DOCKER_IMAGE=3letteragency/nebula
+          DOCKER_IMAGE=nebula
           DOCKER_PLATFORMS=linux/amd64,linux/386,linux/ppc64le,linux/arm/6,linux/arm/7,linux/arm64
           VERSION=$(curl --silent "https://api.github.com/repos/slackhq/nebula/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
 
