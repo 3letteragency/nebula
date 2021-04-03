@@ -1,0 +1,10 @@
+apiVersion: v2
+name: nebula
+version: 1.0.0
+appVersion: 1.3.0
+description: A scalable overlay networking tool with a focus on performance, simplicity and security.
+home: https://github.com/slackhq/nebula
+maintainers:
+  - name: Tyler Weldon
+    email: tylerweldon94@gmail.com
+type: application
