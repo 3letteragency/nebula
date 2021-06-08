@@ -1,6 +1,6 @@
 # nebula
 
-[Origingally Forked From Build Society](https://github.com/buildsociety/nebula)
+[Origingally Forked From Build Society](https://github.com/3letteragency/nebula)
 
 <span style="display:block;text-align:center">[![GitHub](https://img.shields.io/static/v1.svg?color=db422a&logoColor=2a6bdb&style=for-the-badge&label=3letteragency&message=GitHub&logo=github)](https://github.com/3letteragency "view the source for all of our repositories.")</span>
 
@@ -8,7 +8,7 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/3letteragency2/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/3letteragency2/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
 ![Docker Stars](https://img.shields.io/docker/stars/3letteragency2/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
-![Docker Image Version (latest by date)](https://img.shields.io/docker/v/buildsociety/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/3letteragency/nebula?color=db422a&logoColor=2a6bdb&style=for-the-badge)
 
 [Nebula](https://github.com/slackhq/nebula) is a scalable overlay networking tool with a focus on performance, simplicity and security. It lets you seamlessly connect computers anywhere in the world. Nebula is portable, and runs on Linux, OSX, and Windows. (Also: keep this quiet, but we have an early prototype running on iOS). It can be used to connect a small number of computers, but is also able to connect tens of thousands of computers.
 
@@ -25,7 +25,7 @@ This image provides various versions that are available via tags. `latest` tag u
 | :----: | --- |
 | latest | Stable Nebula Releases |
 | edge | Latest Nebula Releases |
-| v1.3.0 | Nebula 1.3.0 Release |
+| v1.4.0 | Nebula 1.4.0 Release |
 
 
 ## Usage
@@ -62,7 +62,7 @@ spec:
       containers:
       - name: ...
       - name: nebula
-        image: 3letteragency2/nebula:v1.2.0
+        image: 3letteragency2/nebula:v1.4.0
         securityContext:
           capabilities:
             add:
@@ -96,7 +96,7 @@ Container images are configured using parameters passed at runtime (such as thos
 * container version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' nebula`
 * image version number
-  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' buildsociety/nebula`
+  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' 3letteragency/nebula`
 
 ## Updating Info
 

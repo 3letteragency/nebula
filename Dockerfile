@@ -1,5 +1,5 @@
 FROM --platform=${BUILDPLATFORM:-linux/amd64} tonistiigi/xx:golang AS xgo
-FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.14-alpine as builder
+FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.16-alpine as builder
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -30,13 +30,13 @@ ARG VCS_REF
 ARG VERSION
 ARG TARGETPLATFORM
 
-LABEL maintainer="buildsociety" \
+LABEL maintainer="3letteragency" \
       org.opencontainers.image.created=$BUILD_DATE \
-      org.opencontainers.image.url="https://github.com/buildsociety/nebula" \
-      org.opencontainers.image.source="https://github.com/buildsociety/nebula" \
+      org.opencontainers.image.url="https://github.com/3letteragency/nebula" \
+      org.opencontainers.image.source="https://github.com/3letteragency/nebula" \
       org.opencontainers.image.version=$VERSION \
       org.opencontainers.image.revision=$VCS_REF \
-      org.opencontainers.image.vendor="buildsociety" \
+      org.opencontainers.image.vendor="3letteragency" \
       org.opencontainers.image.title="nebula" \
       org.opencontainers.image.description="Nebula is a scalable overlay networking tool with a focus on performance, simplicity and security from Slack" \
       org.opencontainers.image.licenses="MIT"
