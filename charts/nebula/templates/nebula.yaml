@@ -1,0 +1,104 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nebula-conf
+data:
+  nebula.conf: |
+    pki:
+      ca: {{ .Values.nebula.pki.ca }}
+      cert: {{ .Values.nebula.pki.cert }}
+      key: {{ .Values.nebula.pki.key }}
+      blocklist: {{ .Values.nebula.pki.blocklist }}
+    static_host_map: {{ .Values.nebula.static_host_map }}
+    lighthost:
+      am_lighthouse: {{ .Values.nebula.lighthouse.am_lighthose }}
+      serve_dns: {{ .Values.nebula.lighthouse.serve_dns }}
+      dns:
+        host: {{ .Values.nebula.lighthouse.dns.host }}
+        port: {{ .Values.nebula.lighthouse.dns.port }}
+      interval: {{ .Values.nebula.lighthouse.interval }}
+      hosts: {{ .Values.nebula.lighthouse.hosts }}
+      remote_allow_list: {{ .Values.nebula.lighthouse.remote_allow_list }}
+      local_allow_list: {{ .Values.nebula.lighthouse.local_allow_list }}
+    listen:
+      host: {{ .Values.nebula.listen.host }}
+      port: {{ .Values.nebula.listen.port }}
+      batch: {{ .Values.nebula.listen.batch }}
+      read_buffer: {{ .Values.nebula.listen.read_buffer }}
+      write_buffer: {{ .Values.nebula.listen.write_buffer }}
+    punchy:
+      punch: {{ .Values.nebula.punch.punch }}
+      respond: {{ .Values.nebula.punch.respond }}
+      delay: {{ .Values.nebula.punch.delay }}
+    cipher: {{ .Values.nebula.cipher }}
+    local_range: {{ .Values.nebula.local_range }}
+    sshd:
+      enabled: {{ .Values.nebula.sshd.enabled }}
+      listen: {{ .Values.nebula.sshd.listen }}
+      host_key: {{ .Values.nebula.sshd.host_key }}
+      authorized_users: {{ .Values.nebula.sshd.authorized_users }}
+      authorized_user: {{ .Values.nebula.sshd.authorized_user }}
+      authorized_keys: {{ .Values.nebula.sshd.authorized_keys }}
+    tun:
+      disabled: {{ .Values.nebula.tun.disabled }}
+      dev: {{ .Values.nebula.tun.dev }}
+      drop_local_broadcast: {{ .Values.nebula.tun.drop_local_broadcast }}
+      drop_multicast: {{ .Values.nebula.tun.drop_multicast }}
+      tx_queue: {{ .Values.nebula.tun.tx_queue }}
+      mtu: {{ .Values.nebula.tun.mtu }}
+      routes: {{ .Values.nebula.tun.routes }}
+      unsafe_routes: {{ .Values.nebula.tun.unsafe_routes }}
+    logging:
+      level: {{ .Values.nebula.logging.level }}
+      format: {{ .Values.nebula.logging.format }}
+    stats:
+      type: {{ .Values.nebula.stats.type }}
+      listen: {{ .Values.nebula.stats.listen }}
+      path: {{ .Values.nebula.stats.path }}
+      namespace: {{ .Values.nebula.stats.namespace }}
+      subsystem: {{ .Values.nebula.stats.subsystem }}
+      interval: {{ .Values.nebula.stats.interval }}
+      message_metrics: {{ .Values.nebula.stats.message_metrics }}
+      lighthouse_metrics: {{ .Values.nebula.stats.lighthouse_metrics }}
+    firewall:
+      conntrack:
+        tcp_timeout: {{ .Values.nebula.firewall.conntrack.tcp_timeout }}
+        udp_timeout: {{ .Values.nebula.firewall.conntrack.udp_timeout }}
+        default_timeout: {{ .Values.nebula.firewall.conntrack.default_timeout }}
+        max_connections: {{ .Values.nebula.firewall.conntrack.max_connections }}
+      outbound: {{ .Values.nebula.firewall.outbound }}
+      inbound: {{ .Values.nebula.firewall.inbound }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.nebula.deploymentName }}
+spec:
+  replicas: {{ .Values.nebula.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.nebula.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.nebula.app }}
+    spec:
+      containers:
+      - name: {{ .Values.nebula.container.name }}
+        image: {{ .Values.nebula.image.repository }}:{{ .Values.nebula.image.tag }}
+        securityContext:
+          capabilities:
+            add:
+              - NET_ADMIN
+        volumeMounts:
+        - mountPath: /etc/nebula
+          readOnly: true
+          name: nebula-conf
+        args: ["-config", "/etc/nebula/nebula.conf" ]
+      volumes:
+      - name: nebula-conf
+        configMap:
+          name: nebula-conf
+          items:
+            - key: nebula.conf
+              path: nebula.conf
